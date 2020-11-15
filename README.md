@@ -4,4 +4,4 @@ Prueba Desarrollador Backend - Gradiweb
 ### Directorios 
 
 #### /app - Backend API (Laravel)
-#### /ui - Frontend
+#### /ui - Frontend (VueJS)
