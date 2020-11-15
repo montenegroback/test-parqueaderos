@@ -19,7 +19,7 @@ class UserVehicleController extends Controller
     {
         $users = User::nameOrDNI(request()->get('user'))->pluck('id')->toArray();
 
-        $user_vehicles = UserVehicle::with('user')
+        $user_vehicles = UserVehicle::with('user', 'brand')
                         ->license(request()->get('license'))
                         ->users($users)
                         ->get();

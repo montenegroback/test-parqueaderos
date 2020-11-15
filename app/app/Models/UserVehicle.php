@@ -45,7 +45,7 @@ class UserVehicle extends Model
         return $this->belongsTo('App\Models\User', 'user_id', 'id');
     }
 
-    public function vehicleBrand() {
+    public function brand() {
         return $this->belongsTo('App\Models\VehicleBrand', 'vehicle_brand_id', 'id');
     }
 
