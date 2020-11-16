@@ -7,7 +7,10 @@
 
         </el-col>
         <el-col :xs="12" :sm="12" :md="12">
-          <AddVehicles />
+          <div class="wrapper__header-btn-actions">
+            <DemoFormatArray />
+            <AddVehicles />
+          </div>
         </el-col>
       </el-row>
     </el-header>
@@ -29,13 +32,15 @@
 import ChartVehicleBrand from "./components/ChartVehicleBrand";
 import ListVehicles from "./components/ListVehicles";
 import AddVehicles from "./components/AddVehicles";
+import DemoFormatArray from "./components/DemoFormatArray";
 
 export default {
   name: 'App',
   components: {
     ChartVehicleBrand,
     ListVehicles,
-    AddVehicles
+    AddVehicles,
+    DemoFormatArray
   }
 }
 </script>
@@ -55,6 +60,12 @@ body {
 
 .el-header {
   background-color: #ffffff;
+}
+
+.wrapper__header-btn-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
 }
 </style>
 

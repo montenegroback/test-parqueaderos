@@ -155,8 +155,7 @@ export default {
 
 <style scoped>
   .el-button--primary {
-    float: right !important;
-    margin-top: 0.5rem;
+    margin-left: 0.5rem;
   }
 
   .el-button--info {
