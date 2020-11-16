@@ -65,6 +65,7 @@ export default {
       }
     },
     onReload() {
+      this.loaded = false;
       this.getVehiclesBrands();
     }
   },

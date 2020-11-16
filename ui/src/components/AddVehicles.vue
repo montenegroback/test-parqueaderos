@@ -15,6 +15,7 @@
       :rules="rules"
       ref="formAddVehicles"
       :show-message="false"
+      label-position="top"
     >    
       <div class="wrapper__drawer-add-vehicles">
         <h3>Información de registro</h3>
@@ -49,7 +50,14 @@
           </el-col>
         </el-row>
         <el-form-item label="Marca" prop="vehicle_brand_id">
-          <el-input v-model="formAddVehicles.vehicle_brand_id"></el-input>
+          <el-select filterable v-model="formAddVehicles.vehicle_brand_id">
+            <el-option
+              v-for="brand in brands"
+              :key="brand.id"
+              :label="brand.name"
+              :value="brand.id">
+            </el-option>
+          </el-select>
         </el-form-item>
       </div>
 
@@ -73,6 +81,7 @@ export default {
   data: () => ({
     drawer: false,
     loading: false,
+    brands: [],
     formAddVehicles: {
       name: "",
       dni: "",
@@ -126,7 +135,20 @@ export default {
         message,
         type
       });
-    }
+    },
+    async getVehiclesBrands() {
+      try {
+        const { data } =  await vehicleServices.getVehiclesBrands();
+        if(data.success) {
+          this.brands = data.data;
+        }
+      } catch (e) {
+        return false;
+      }
+    },
+  },
+  mounted() {
+    this.getVehiclesBrands();
   }
 }
 </script>
